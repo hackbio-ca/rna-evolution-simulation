@@ -47,4 +47,3 @@ if __name__ == "__main__":
     plt.xlabel('Fitness')
     plt.ylabel('Frequency')
     plt.show()
-    # plt.savefig('sine_wave.png')

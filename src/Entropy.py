@@ -10,9 +10,9 @@ def get_entropy(sequence: str, view_struct: bool):
 
     # Full path to RNAfold and RNAplot executables
     # For some reason, I cant import it so I just downloaded it
-    rnafold_path = os.path.join(script_dir, 'ViennaRNA Package', 'RNAfold.exe')
-    rnaplot_path = os.path.join(script_dir, 'ViennaRNA Package', 'RNAplot.exe')
-    rna2d_path = os.path.join(script_dir, 'ViennaRNA Package', "RNA2Dfold.exe")
+    rnafold_path = os.path.join(script_dir, '../ViennaRNA Package', 'RNAfold.exe')
+    rnaplot_path = os.path.join(script_dir, '../ViennaRNA Package', 'RNAplot.exe')
+    rna2d_path = os.path.join(script_dir, '../ViennaRNA Package', "RNA2Dfold.exe")
 
     # Run RNAfold to get the structure
     fold_result = subprocess.run(
@@ -28,12 +28,13 @@ def get_entropy(sequence: str, view_struct: bool):
     structure = re.search(dot_bracket_pattern, structure)[0]
 
     # Save the sequence and structure to a file in dot-bracket format
-    with open("rna_structure.txt", "w") as f:
+    with open("output/rna_structure.txt", "w") as f:
         f.write(f"{sequence}\n{structure}\n")
 
+    svg_out = os.path.join(script_dir, 'output')
     # Run RNAplot, creates an SVG file of the output
     result_plot = subprocess.run(
-        [rnaplot_path, "-o", "svg", "rna_structure.txt"],
+        [rnaplot_path, "-o", 'svg', "output/rna_structure.txt"],
         capture_output=True,
         text=True
     )
