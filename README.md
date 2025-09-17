@@ -1,5 +1,7 @@
 # rna-evolution-simulation
 
+** Toronto Bioinformatics Hackathon, 2024**
+
 Construct a simulation of self-replicating RNA polymers to model their evolution over time and explore the emergence of new functions through selection and mutation processes.
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
